@@ -1,7 +1,7 @@
 OpenFaaS Node.js 12 (LTS) and ApolloGraphQL micro-service template
 =============================================
 
-This template provides Node.js 12 (LTS) and full access to [ApolloGraphQL](https://www.apollographql.com/docs/apollo-server/) for building microservices for [OpenFaaS](https://www.openfaas.com), Docker, Knative and Cloud Run.
+This template provides Node.js 12 (LTS) and full access to [ApolloGraphQL](https://www.apollographql.com/docs/apollo-server/), through Express middleware, for building microservices for [OpenFaaS](https://www.openfaas.com), Docker, Knative and Cloud Run.
 
 With this template you can create a new microservice and deploy it to a platform like [OpenFaaS](https://www.openfaas.com) for:
 
