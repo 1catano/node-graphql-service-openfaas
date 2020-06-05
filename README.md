@@ -39,7 +39,7 @@ See also: [Deploy OpenFaaS](https://docs.openfaas.com/deployment/)
 
 ## Example usage
 
-### Minimal example with one route
+### Minimal example with one Query
 
 ```js
 "use strict"
