@@ -1,33 +1,35 @@
 "use strict"
 
-module.exports = async (config) => {
-    const routing = new Routing(config.app);
-    routing.configure();
-    routing.bind(routing.handle);
-}
+const { gql } = require('apollo-server-express');
+const books = [
+    {
+        title: 'JavaScript for Dummies',
+        author: 'Jane Smith',
+    },
+    {
+        title: 'JavaScript Book',
+        author: 'Michael Smith',
+    },
+];
 
-class Routing {
-    constructor(app) {
-        this.app = app;
-    }
+const typeDefs = gql`
+  type Book {
+    title: String
+    author: String
+  }
+  type Query {
+    books: [Book]
+  }
+`;
 
-    configure() {
-        const bodyParser = require('body-parser')
-        this.app.use(bodyParser.json());
-        this.app.use(bodyParser.raw());
-        this.app.use(bodyParser.text({ type : "text/*" }));
-        this.app.disable('x-powered-by');        
-    }
+const shcemaResolvers = {
+    query: () => books
+};
 
-    bind(route) {
-        this.app.post('/*', route);
-        this.app.get('/*', route);
-        this.app.patch('/*', route);
-        this.app.put('/*', route);
-        this.app.delete('/*', route);
-    }
-
-    handle(req, res) {
-        res.send(JSON.stringify(req.body));
-    }
+module.exports = {
+    handler: async (config) => {
+        const app = config.app;
+    },
+    typeDefs,
+    shcemaResolvers
 }
