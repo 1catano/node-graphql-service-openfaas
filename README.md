@@ -13,7 +13,7 @@ With this template you can create a new microservice and deploy it to a platform
 
 ## Status of the template
 
-This template is experimental and I would like your feedback through GitHub issues or [OpenFaaS Slack](https://docs.openfaas.com/community).
+This template is experimental and I would like your feedback through GitHub issues.
 
 ## Supported platforms
 
