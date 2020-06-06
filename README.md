@@ -46,14 +46,14 @@ See also: [Deploy OpenFaaS](https://docs.openfaas.com/deployment/)
 
 const { gql } = require('apollo-server-express');
 const books = [
-    {
-        title: 'JavaScript for Dummies',
-        author: 'Jane Smith',
-    },
-    {
-        title: 'JavaScript Book',
-        author: 'Michael Smith',
-    },
+  {
+    title: 'JavaScript for Dummies',
+    author: 'Jane Smith',
+  },
+  {
+    title: 'JavaScript Book',
+    author: 'Michael Smith',
+  },
 ];
 
 const typeDefs = gql`
@@ -66,16 +66,18 @@ const typeDefs = gql`
   }
 `;
 
-const shcemaResolvers = {
-    query: () => books
+const resolvers = {
+  Query: {
+    books: () => books,
+  },
 };
 
 module.exports = {
-    handler: async (config) => {
-        const app = config.app;
-    },
-    typeDefs,
-    shcemaResolvers
+  handler: async (config) => {
+    const app = config.app;
+  },
+  typeDefs,
+  resolvers
 }
 ```
 *handler.js*
