@@ -3,19 +3,13 @@
 
 "use strict"
 
-const express = require('express');
-const app = express();
 const { handler, resolvers, typeDefs } = require('./function/handler');
-const { ApolloServer } = require('apollo-server-express');
+const { ApolloServer } = require('apollo-server');
+const app = new ApolloServer({ typeDefs, resolvers });
 
-async function init() {
+const init = async () => {
   await handler({ "app": app });
-
-  const port = process.env.http_port || 3000;
-  app.disable('x-powered-by');
-
-  const server = new ApolloServer({ typeDefs, resolvers });
-  server.applyMiddleware({ app });
+  const port = process.env.http_port || 4000;
 
   // Start the server
   app.listen(port, () => {

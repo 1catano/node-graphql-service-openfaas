@@ -1,3 +1,4 @@
 node_modules/**
 build
-
+template/node-graphql-service/node_modules/**
+template/node-graphql-service/function/yarn.lock
